@@ -16,7 +16,7 @@ $cs->scriptMap["jquery-ui.min.js"] = "//ajax.googleapis.com/ajax/libs/jqueryui/$
 // https://github.com/joshlangner/jquery-bbq/blob/master/jquery.ba-bbq.min.js
 $cs->scriptMap["jquery.ba-bbq.js"] = Yii::app()->theme->baseUrl . "/assets/js/jquery.ba-bbq.min.js";
 
-$assetsUrl = '/' . Yii::app()->theme->name . '-assets';
+$assetsUrl = '/assets-' . Yii::app()->theme->name;
 
 // register js files
 $cs->registerCoreScript('jquery');

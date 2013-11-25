@@ -1,5 +1,6 @@
 <?php
 // setup versions
+$bootstrapCustomTheme = "bs3flatdarktheme";
 $bootstrapVersion = "3.0.0";
 $fontAwesomeVersion = "3.2.1";
 $jqueryVersion = "2.0.3";
@@ -15,16 +16,26 @@ $cs->scriptMap["jquery-ui.min.js"] = "//ajax.googleapis.com/ajax/libs/jqueryui/$
 // https://github.com/joshlangner/jquery-bbq/blob/master/jquery.ba-bbq.min.js
 $cs->scriptMap["jquery.ba-bbq.js"] = Yii::app()->theme->baseUrl . "/assets/js/jquery.ba-bbq.min.js";
 
+$assetsUrl = '/' . Yii::app()->theme->name . '-assets';
+
 // register js files
 $cs->registerCoreScript('jquery');
 $cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_END);
-$cs->registerScriptFile(Yii::app()->theme->baseUrl . "/assets/js/main.js", CClientScript::POS_END);
+$cs->registerScriptFile("$assetsUrl/js/main.js", CClientScript::POS_END);
+
+if (isset($bootstrapCustomTheme) && !empty($bootstrapCustomTheme))
+    $cs->registerCssFile("{$assetsUrl}/css/$bootstrapCustomTheme.css");
+else
+    $cs->registerCssFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/css/bootstrap.min.css");
+
+$cs->registerCssFile("{$assetsUrl}/css/main.css");
+$cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
 
 $homeUrl = Yii::app()->homeUrl;
-if($this->module)
+if ($this->module)
     $homeUrl = Yii::app()->createUrl("/{$this->module->id}/{$this->module->defaultController}/{$this->defaultAction}");
 $homeName = Yii::app()->name;
-if($this->module)
+if ($this->module)
     $homeName = ucfirst($this->module->id);
 ?>
 
@@ -36,16 +47,10 @@ if($this->module)
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <!-- CSS -->
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/bs3flatdarktheme.css" rel="stylesheet">
-        <!--<link href="//netdna.bootstrapcdn.com/bootstrap/<?php echo $bootstrapVersion; ?>/css/bootstrap.min.css" rel="stylesheet">-->
-        <link href="//netdna.bootstrapcdn.com/font-awesome/<?php echo $fontAwesomeVersion; ?>/css/font-awesome.min.css" rel="stylesheet">
-        <link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/main.css" rel="stylesheet">
-
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
-        <script src="<?php echo Yii::app()->theme->baseUrl . "/assets/js/html5shiv.js"; ?>"></script>
-        <script src="<?php echo Yii::app()->theme->baseUrl . "/assets/js/respond.min.js"; ?>"></script>
+        <script src="/<?php echo $assetsUrl . "/js/html5shiv.js"; ?>"></script>
+        <script src="/<?php echo $assetsUrl . "/js/respond.min.js"; ?>"></script>
         <![endif]-->
 
         <!-- Javascript -->

@@ -223,3 +223,15 @@ div.flash-success a
 {
     color:#264409;
 }
+
+/* YORD */
+
+/* Fixes in dark theme */
+.nav-pills > li > a {
+    border-radius: 0px;
+}
+
+/* Fixes in yii widgets */
+div.form .errorSummary {
+    background: inherit;
+}

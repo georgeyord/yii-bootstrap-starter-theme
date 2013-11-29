@@ -237,9 +237,20 @@ div.form .errorSummary {
 }
 
 table.detail-view,
-table.detail-view tr.odd {
+table.detail-view tr.odd,
+.grid-view table.items,
+.grid-view table.items tr.odd {
     background-color: transparent;
 }
-table.detail-view tr.even {
-    background-color: rgba(256,256,256,0.1);
+table.detail-view tr.even,
+.grid-view table.items tr.even {
+    background-color: rgba(255,255,255,0.1);
+}
+table.detail-view tr:hover,
+.grid-view table.items tbody tr:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+table.detail-view tr:hover.selected,
+.grid-view table.items tbody tr:hover.selected {
+    background-color: rgba(204,255,102,0.2);
 }

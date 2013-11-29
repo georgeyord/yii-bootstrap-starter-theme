@@ -29,6 +29,7 @@ else
     $cs->registerCssFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/css/bootstrap.min.css");
 
 $cs->registerCssFile("{$assetsUrl}/css/main.css");
+$cs->registerCssFile("{$assetsUrl}/css/helpers.css");
 $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
 
 $homeUrl = Yii::app()->homeUrl;

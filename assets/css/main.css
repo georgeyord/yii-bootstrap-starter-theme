@@ -235,3 +235,11 @@ div.flash-success a
 div.form .errorSummary {
     background: inherit;
 }
+
+table.detail-view,
+table.detail-view tr.odd {
+    background-color: transparent;
+}
+table.detail-view tr.even {
+    background-color: rgba(256,256,256,0.1);
+}

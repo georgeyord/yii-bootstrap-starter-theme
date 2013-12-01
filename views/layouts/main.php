@@ -33,11 +33,11 @@ $cs->registerCssFile("{$assetsUrl}/css/helpers.css");
 $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
 
 $homeUrl = Yii::app()->homeUrl;
-if ($this->module)
-    $homeUrl = Yii::app()->createUrl("/{$this->module->id}/{$this->module->defaultController}/{$this->defaultAction}");
 $homeName = Yii::app()->name;
-if ($this->module)
+if ($this->module) {
+    $homeUrl = Yii::app()->createUrl("/{$this->module->id}/{$this->module->defaultController}/{$this->defaultAction}");
     $homeName = ucfirst($this->module->id);
+}
 ?>
 
 <!DOCTYPE html>

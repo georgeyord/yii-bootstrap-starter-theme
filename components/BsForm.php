@@ -9,12 +9,14 @@
  * as duplicate error display
  */
 class BsForm extends CActiveForm {
+    // JS file required
+    const ASSOCIATED_JS_OBJECT = 'bsform';
+    
     // Additional Components used
-
     const TAGSINPUT = 'tagsinput';
 
     // CSS Classes used for tooltips & errors
-    const CLASS_ERROR = 'error-state';
+    const ERROR_CSS_CLASSES = 'error-state';
 
     /**
      * @var boolean $enableClientValidation By default enable client validation
@@ -57,7 +59,7 @@ class BsForm extends CActiveForm {
     public $runOptions;
 
     /**
-     * Rewrite the parent::run() function so that yiiactiveform is not loaded and pphactiveform is loaded instead
+     * Rewrite the parent::run() function so that yiiactiveform is not loaded and bsform is loaded instead
      * @yiiupgrade CActiveForm::run()
      * @version 1.1.14
      */
@@ -122,14 +124,14 @@ class BsForm extends CActiveForm {
         }
 
         $this->runOptions = CJavaScript::encode($options);
-        $cs->registerScript(__CLASS__ . '#' . $id, "\$('#$id').pphactiveform($this->runOptions);");
+        $cs->registerScript(__CLASS__ . '#' . $id, "\$('#$id').".self::ASSOCIATED_JS_OBJECT."($this->runOptions);");
     }
 
     /**
      * @return string the js snippet that invokes error display on afterValidate event
      */
     private function _getAfterValidate() {
-        return "return $(this).pphactiveform.displayErrors(form, data, hasError);";
+        return "return $(this).".self::ASSOCIATED_JS_OBJECT.".displayErrors(form, data, hasError);";
     }
 
     /**

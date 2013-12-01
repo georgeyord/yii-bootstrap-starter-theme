@@ -22,6 +22,7 @@ $assetsUrl = '/assets-' . Yii::app()->theme->name;
 $cs->registerCoreScript('jquery');
 $cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_END);
 $cs->registerScriptFile("$assetsUrl/js/main.js", CClientScript::POS_END);
+$cs->registerScriptFile("$assetsUrl/js/bootstrap-tagsinput.js", CClientScript::POS_END);
 
 if (isset($bootstrapCustomTheme) && !empty($bootstrapCustomTheme))
     $cs->registerCssFile("{$assetsUrl}/css/$bootstrapCustomTheme.css");
@@ -29,6 +30,7 @@ else
     $cs->registerCssFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/css/bootstrap.min.css");
 
 $cs->registerCssFile("{$assetsUrl}/css/main.css");
+$cs->registerCssFile("{$assetsUrl}/css/bootstrap-tagsinput.css");
 $cs->registerCssFile("{$assetsUrl}/css/helpers.css");
 $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
 

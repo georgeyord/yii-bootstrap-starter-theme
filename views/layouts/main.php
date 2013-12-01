@@ -6,34 +6,7 @@ $fontAwesomeVersion = "3.2.1";
 $jqueryVersion = "2.0.3";
 $queryUiVersion = "1.10.3";
 
-// setup scriptmap for jquery and jquery-ui cdn
-$cs = Yii::app()->clientScript;
-$cs->scriptMap["jquery.js"] = "//ajax.googleapis.com/ajax/libs/jquery/$jqueryVersion/jquery.min.js";
-$cs->scriptMap["jquery.min.js"] = $cs->scriptMap["jquery.js"];
-$cs->scriptMap["jquery-ui.min.js"] = "//ajax.googleapis.com/ajax/libs/jqueryui/$queryUiVersion/jquery-ui.min.js";
-
-// fix jquery.ba-bbq.js for jquery 1.9+ (removed $.browser)
-// https://github.com/joshlangner/jquery-bbq/blob/master/jquery.ba-bbq.min.js
-$cs->scriptMap["jquery.ba-bbq.js"] = Yii::app()->theme->baseUrl . "/assets/js/jquery.ba-bbq.min.js";
-
 $assetsUrl = '/assets-' . Yii::app()->theme->name;
-
-// register js files
-$cs->registerCoreScript('jquery');
-$cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_END);
-$cs->registerScriptFile("$assetsUrl/js/main.js", CClientScript::POS_END);
-$cs->registerScriptFile("$assetsUrl/js/bootbox.js", CClientScript::POS_END);
-$cs->registerScriptFile("$assetsUrl/js/bootstrap-tagsinput.js", CClientScript::POS_END);
-
-if (isset($bootstrapCustomTheme) && !empty($bootstrapCustomTheme))
-    $cs->registerCssFile("{$assetsUrl}/css/$bootstrapCustomTheme.css");
-else
-    $cs->registerCssFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/css/bootstrap.min.css");
-
-$cs->registerCssFile("{$assetsUrl}/css/main.css");
-$cs->registerCssFile("{$assetsUrl}/css/bootstrap-tagsinput.css");
-$cs->registerCssFile("{$assetsUrl}/css/helpers.css");
-$cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
 
 $homeUrl = Yii::app()->homeUrl;
 $homeName = Yii::app()->name;
@@ -41,6 +14,47 @@ if ($this->module) {
     $homeUrl = Yii::app()->createUrl("/{$this->module->id}/{$this->module->defaultController}/{$this->defaultAction}");
     $homeName = ucfirst($this->module->id);
 }
+
+// setup scriptmap for jquery and jquery-ui cdn
+$cs = Yii::app()->clientScript;
+$cs->scriptMap["jquery.js"] = "//ajax.googleapis.com/ajax/libs/jquery/$jqueryVersion/jquery.min.js";
+$cs->scriptMap["jquery.min.js"] = $cs->scriptMap["jquery.js"];
+$cs->scriptMap["jquery-ui.min.js"] = "//ajax.googleapis.com/ajax/libs/jqueryui/$queryUiVersion/jquery-ui.min.js";
+// fix jquery.ba-bbq.js for jquery 1.9+ (removed $.browser)
+// https://github.com/joshlangner/jquery-bbq/blob/master/jquery.ba-bbq.min.js
+$cs->scriptMap["jquery.ba-bbq.js"] = $assetsUrl . "/js/jquery.ba-bbq.min.js";
+
+// Responsive pages basic package
+$cs->addPackage('js-bs3-basic', array(
+    'baseUrl' => "$assetsUrl/js",
+    'js' => array(
+        'main.js',
+        'bs.activeform.js',
+        'jquery.ba-bbq.min.js',
+        'bootbox.js',
+        'bootstrap-tagsinput.js',
+    ),
+    'depends' => array(
+        'bbq',
+        'cookie',
+        'gridview',
+        'listview',
+        'yiiactiveform',
+    ),
+));
+$cs->registerPackage('js-bs3-basic');
+// register js files
+$cs->registerCoreScript('jquery');
+$cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_END);
+
+if (isset($bootstrapCustomTheme) && !empty($bootstrapCustomTheme))
+    $cs->registerCssFile("{$assetsUrl}/css/$bootstrapCustomTheme.css");
+else
+    $cs->registerCssFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/css/bootstrap.min.css");
+$cs->registerCssFile("{$assetsUrl}/css/main.css");
+$cs->registerCssFile("{$assetsUrl}/css/bootstrap-tagsinput.css");
+$cs->registerCssFile("{$assetsUrl}/css/helpers.css");
+$cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
 ?>
 
 <!DOCTYPE html>

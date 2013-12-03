@@ -99,8 +99,8 @@ $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion
 
                     <?php
                     /* Main nav */
-                    if(!$this->topMenu) {
-                        return $this->createWidget('zii.widgets.CMenu', array(
+                    if($this->topMenu) {
+                        $this->widget('zii.widgets.CMenu', array(
                                     'htmlOptions' => array('class' => 'nav navbar-nav'),
                                     'items' => $this->topMenu,
                         ));

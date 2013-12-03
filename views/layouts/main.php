@@ -99,7 +99,12 @@ $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion
 
                     <?php
                     /* Main nav */
-                    Yii::app()->controller->module->topNavigation->run();
+                    if(!$this->topMenu) {
+                        return $this->createWidget('zii.widgets.CMenu', array(
+                                    'htmlOptions' => array('class' => 'nav navbar-nav'),
+                                    'items' => $this->topMenu,
+                        ));
+                    }
 
                     /* Right nav */
                     $this->widget('zii.widgets.CMenu', array(

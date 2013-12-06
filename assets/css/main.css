@@ -224,6 +224,17 @@ div.flash-success a
     color:#264409;
 }
 
+/* Fixes in Yii */
+.js-tagsinput + .bootstrap-tagsinput {
+    width: 100%
+}
+table.detail-view tr.selected,
+table.detail-view tr:hover.selected,
+.grid-view table.items tbody tr.selected,
+.grid-view table.items tbody tr:hover.selected {
+    background-color: rgba(52, 152, 219, 0.31);
+}
+
 /* Fixes in yii widgets */
 div.form .errorSummary {
     background: inherit;

@@ -6,8 +6,6 @@ $fontAwesomeVersion = "3.2.1";
 $jqueryVersion = "2.0.3";
 $queryUiVersion = "1.10.3";
 
-$assetsUrl = '/assets-' . Yii::app()->theme->name;
-
 $homeUrl = Yii::app()->homeUrl;
 $homeName = Yii::app()->name;
 if ($this->module) {
@@ -17,6 +15,8 @@ if ($this->module) {
 
 // setup scriptmap for jquery and jquery-ui cdn
 $cs = Yii::app()->clientScript;
+// Publish required assets
+$assetsUrl = Yii::app()->getAssetManager()->publish(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'assets');
 $cs->scriptMap["jquery.js"] = "//ajax.googleapis.com/ajax/libs/jquery/$jqueryVersion/jquery.min.js";
 $cs->scriptMap["jquery.min.js"] = $cs->scriptMap["jquery.js"];
 $cs->scriptMap["jquery-ui.min.js"] = "//ajax.googleapis.com/ajax/libs/jqueryui/$queryUiVersion/jquery-ui.min.js";
@@ -26,13 +26,11 @@ $cs->scriptMap["jquery.ba-bbq.js"] = $assetsUrl . "/js/jquery.ba-bbq.min.js";
 
 // Responsive pages basic package
 $cs->addPackage('js-bs3-basic', array(
-    'baseUrl' => "$assetsUrl/js",
+    'baseUrl' => $assetsUrl . "/js",
     'js' => array(
         'main.js',
         'bs.activeform.js',
         'jquery.ba-bbq.min.js',
-        'bootbox.js',
-        'bootstrap-tagsinput.js',
     ),
     'depends' => array(
         'bbq',
@@ -43,18 +41,21 @@ $cs->addPackage('js-bs3-basic', array(
     ),
 ));
 $cs->registerPackage('js-bs3-basic');
+$cs->registerScriptFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__) . '/../../lib/bootbox/bootbox.js'), CClientScript::POS_END);
+$cs->registerScriptFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__) . '/../../lib/tagsinput/dist/bootstrap-tagsinput.js'), CClientScript::POS_END);
+
 // register js files
 $cs->registerCoreScript('jquery');
 $cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_END);
 
 if (isset($bootstrapCustomTheme) && !empty($bootstrapCustomTheme))
-    $cs->registerCssFile("{$assetsUrl}/css/$bootstrapCustomTheme.css");
+    $cs->registerCssFile($assetsUrl . "/css/$bootstrapCustomTheme.css");
 else
     $cs->registerCssFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/css/bootstrap.min.css");
-$cs->registerCssFile("{$assetsUrl}/css/main.css");
-$cs->registerCssFile("{$assetsUrl}/css/bootstrap-tagsinput.css");
-$cs->registerCssFile("{$assetsUrl}/css/helpers.css");
 $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
+$cs->registerCssFile($assetsUrl . "/css/main.css");
+$cs->registerCssFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__) . '/../../lib/tagsinput/dist/bootstrap-tagsinput.css'));
+$cs->registerCssFile($assetsUrl . "/css/helpers.css");
 ?>
 
 <!DOCTYPE html>
@@ -99,10 +100,10 @@ $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion
 
                     <?php
                     /* Main nav */
-                    if($this->topMenu) {
+                    if (isset($this->topMenu) && $this->topMenu) {
                         $this->widget('zii.widgets.CMenu', array(
-                                    'htmlOptions' => array('class' => 'nav navbar-nav'),
-                                    'items' => $this->topMenu,
+                            'htmlOptions' => array('class' => 'nav navbar-nav'),
+                            'items' => $this->topMenu,
                         ));
                     }
 
@@ -156,7 +157,7 @@ $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion
 
             <div id="main-content">
 
-                <?php if (!$this->menu): ?>
+                <?php if (!isset($this->menu) || !$this->menu) : ?>
 
                     <div class="row">
                         <div class="col-lg-12">

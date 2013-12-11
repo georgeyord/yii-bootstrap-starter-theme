@@ -1,1 +1,0 @@
-../../lib/tagsinput/dist/bootstrap-tagsinput.min.js

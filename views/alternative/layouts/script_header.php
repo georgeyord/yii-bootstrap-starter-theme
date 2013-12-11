@@ -7,7 +7,7 @@
  * Class ${NAME}
  */
 $cs = Yii::app()->clientScript;
-$themePath = '/assets-' . Yii::app()->theme->name.'/alternative';
+$themePath = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('application.lib.yii-bootstrap-3-module-example.www'));
 if(isset(Yii::app()->params->version))
     $version = Yii::app()->params->version;
 else if($this->module && isset ($this->module->params) && isset ($this->module->params['version']))

@@ -224,6 +224,17 @@ div.flash-success a
     color:#264409;
 }
 
+/* Additions in BS */
+.tag-container .tag {
+    margin-bottom: 5px;
+    margin-right: 2px;
+}
+
+/* Fixes in BS */
+.label a {
+    color: #fff;
+}
+
 /* Fixes in yii widgets */
 div.form .errorSummary {
     background: inherit;

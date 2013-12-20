@@ -235,6 +235,28 @@ table.detail-view tr:hover.selected,
     background-color: rgba(52, 152, 219, 0.31);
 }
 
+/* Fixes in dark theme */
+.bootstrap-tagsinput {
+    background-color: #3f5872;
+    border-radius: 0;
+    border: 1px solid #1abc9c;
+}
+.bootstrap-tagsinput input{
+    color: #fff;
+}
+
+
+/* Additions in BS */
+.tag-container .tag {
+    margin-bottom: 5px;
+    margin-right: 2px;
+}
+
+/* Fixes in BS */
+.label a {
+    color: #fff;
+}
+
 /* Fixes in yii widgets */
 div.form .errorSummary {
     background: inherit;

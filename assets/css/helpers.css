@@ -14,6 +14,54 @@
     background-color: #fff;
 }
 
+/* Text helper classes  - mostly used in p, a and span elements */
+.small {
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+}
+.smaller {
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+}
+.large {
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+}
+.quiet {
+    color:#666;
+}
+.loud {
+    color:#000;
+}
+.vertical {
+    display: inline-block;
+    white-space: nowrap;
+
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+a.discreet, span.discreet, p.discreet {
+    font-weight: normal;
+    color: #8a8a8a;
+}
+a.discreet:hover, span.discreet:hover {
+    color: #8a8a8a;
+}
+.strong.discreet, strong.discreet{
+    color: #d9d9d9;
+}
+label.discreet {
+    color: #8a8a8a;
+    font-size: 1.1rem;
+    font-weight: normal;
+    line-height: 1.3rem;
+}
+.clickable {
+    cursor: pointer;
+}
+
 /* Float/Clear/Padding/Margin helper classes */
 .clear {clear:both;}
 .prepend-top {margin-top: 30px;}
@@ -141,7 +189,7 @@
 
 /**
  * Loader CSS
- */
+*/
 .loader {
     background: url("../images/loader.gif") no-repeat scroll 50% 0 transparent;
     display: block;

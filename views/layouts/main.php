@@ -48,13 +48,13 @@ $cs->registerScriptFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__)
 $cs->registerCoreScript('jquery');
 $cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_END);
 
+$cs->registerCssFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__) . '/../../lib/tagsinput/dist/bootstrap-tagsinput.css'));
 if (isset($bootstrapCustomTheme) && !empty($bootstrapCustomTheme))
     $cs->registerCssFile($assetsUrl . "/css/$bootstrapCustomTheme.css");
 else
     $cs->registerCssFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/css/bootstrap.min.css");
 $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
 $cs->registerCssFile($assetsUrl . "/css/main.css");
-$cs->registerCssFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__) . '/../../lib/tagsinput/dist/bootstrap-tagsinput.css'));
 $cs->registerCssFile($assetsUrl . "/css/helpers.css");
 ?>
 

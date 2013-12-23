@@ -2,7 +2,7 @@
 // setup versions
 $bootstrapCustomTheme = "bs3flatdarktheme";
 $bootstrapVersion = "3.0.0";
-$fontAwesomeVersion = "3.2.1";
+$fontAwesomeVersion = "4.0.3";
 $jqueryVersion = "2.0.3";
 $queryUiVersion = "1.10.3";
 
@@ -79,7 +79,7 @@ $cs->registerCssFile($assetsUrl . "/css/helpers.css");
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>
 
-    <body>
+    <body class="<?php echo sprintf("controller-%s view-%s", strtolower($this->id), strtolower($this->action->id)); ?>">
         <div class="container">
             <nav class="navbar navbar-default" role="navigation">
 

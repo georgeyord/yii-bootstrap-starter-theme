@@ -1,3 +1,34 @@
+/* Color classes */
+.text-color-primary {
+    color: blue;
+}
+.bg-color-primary {
+    background-color: blue;
+}
+.text-color-success {
+    color: green;
+}
+.bg-color-success {
+    background-color: green;
+}
+.text-color-danger {
+    color: red;
+}
+.bg-color-danger {
+    background-color: red;
+}
+.text-color-warning {
+    color: yellow;
+}
+.bg-color-warning {
+    background-color: yellow;
+}
+.text-color-info {
+    color: cyan;
+}
+.bg-color-info {
+    background-color: cyan;
+}
 /* Grid helper classes */
 .first {
     padding-left: 0 !important;
@@ -60,6 +91,18 @@ label.discreet {
 }
 .clickable {
     cursor: pointer;
+}
+.clickable.disabled {
+    cursor: default;
+}
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.grayscale {
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 }
 
 /* Float/Clear/Padding/Margin helper classes */

@@ -67,7 +67,7 @@ div.form div.error label,
 div.form label.error,
 div.form span.error
 {
-    color: #C00;
+    color: #e52e3c;
 }
 
 div.form div.error input,
@@ -77,8 +77,8 @@ div.form input.error,
 div.form textarea.error,
 div.form select.error
 {
-    background: #FEE;
-    border-color: #C00;
+    background: rgba(256,238,238,0.2);
+    border-color: #e52e3c;
 }
 
 div.form div.success input,

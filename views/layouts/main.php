@@ -78,7 +78,6 @@ $cs->registerCssFile($assetsUrl . "/css/helpers.css");
         <!-- NOTE: Yii uses this title element for its asset manager, so keep it last -->
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>
-
     <body class="<?php echo sprintf("controller-%s view-%s", strtolower($this->id), strtolower($this->action->id)); ?>">
         <div class="container">
             <nav class="navbar navbar-default" role="navigation">

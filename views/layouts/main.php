@@ -2,7 +2,7 @@
 // setup versions
 $bootstrapCustomTheme = null;
 $bootstrapVersion = "3.0.0";
-$fontAwesomeVersion = "3.2.1";
+$fontAwesomeVersion = "4.0.3";
 $jqueryVersion = "2.0.3";
 $queryUiVersion = "1.10.3";
 
@@ -48,13 +48,13 @@ $cs->registerScriptFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__)
 $cs->registerCoreScript('jquery');
 $cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_END);
 
+$cs->registerCssFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__) . '/../../lib/tagsinput/dist/bootstrap-tagsinput.css'));
 if (isset($bootstrapCustomTheme) && !empty($bootstrapCustomTheme))
     $cs->registerCssFile($assetsUrl . "/css/$bootstrapCustomTheme.css");
 else
     $cs->registerCssFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/css/bootstrap.min.css");
 $cs->registerCssFile("//netdna.bootstrapcdn.com/font-awesome/$fontAwesomeVersion/css/font-awesome.min.css");
 $cs->registerCssFile($assetsUrl . "/css/main.css");
-$cs->registerCssFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__) . '/../../lib/tagsinput/dist/bootstrap-tagsinput.css'));
 $cs->registerCssFile($assetsUrl . "/css/helpers.css");
 ?>
 
@@ -79,7 +79,7 @@ $cs->registerCssFile($assetsUrl . "/css/helpers.css");
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>
 
-    <body>
+    <body class="<?php echo sprintf("controller-%s view-%s", strtolower($this->id), strtolower($this->action->id)); ?>">
         <div class="container">
             <nav class="navbar navbar-default" role="navigation">
 

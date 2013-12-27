@@ -1,33 +1,38 @@
 /* Color classes */
 .text-color-primary {
-    color: blue;
+    color: #15987e;
+    /*0f705d*/
 }
 .bg-color-primary {
-    background-color: blue;
+    background-color: #15987e;
 }
 .text-color-success {
-    color: green;
+    color: #2ecc71;
+    /*#29b765*/
 }
 .bg-color-success {
-    background-color: green;
+    background-color: #2ecc71;
 }
 .text-color-danger {
-    color: red;
+    color: #df2e1b;
+    /*#b62516*/
 }
 .bg-color-danger {
-    background-color: red;
+    background-color: #df2e1b;
 }
 .text-color-warning {
-    color: yellow;
+    color: 3f39c12;
+    /*#e08e0b*/
 }
 .bg-color-warning {
-    background-color: yellow;
+    background-color: #f39c12;
 }
 .text-color-info {
-    color: cyan;
+    color: #2383c4;
+    /*#1c699d*/
 }
 .bg-color-info {
-    background-color: cyan;
+    background-color: #2383c4;
 }
 /* Grid helper classes */
 .first {

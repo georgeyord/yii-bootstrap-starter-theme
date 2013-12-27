@@ -46,7 +46,8 @@ $cs->registerScriptFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__)
 
 // register js files
 $cs->registerCoreScript('jquery');
-$cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_END);
+$cs->registerScriptFile("jquery.min.js", CClientScript::POS_HEAD);
+$cs->registerScriptFile("//netdna.bootstrapcdn.com/bootstrap/$bootstrapVersion/js/bootstrap.min.js", CClientScript::POS_HEAD);
 
 $cs->registerCssFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__) . '/../../lib/tagsinput/dist/bootstrap-tagsinput.css'));
 if (isset($bootstrapCustomTheme) && !empty($bootstrapCustomTheme))

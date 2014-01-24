@@ -246,6 +246,9 @@ table.detail-view tr:hover.selected,
 .label a {
     color: #fff;
 }
+.bootbox-prompt .form-control {
+    width: 100%;
+}
 
 /* Fixes in yii widgets */
 div.form .errorSummary {

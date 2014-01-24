@@ -1556,7 +1556,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .form-control {
   display: block;
-  width: 100%;
+  /*width: 100%;*/
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
@@ -3386,9 +3386,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-pills > li {
   float: left;
 }
-.nav-pills > li > a {
+/*.nav-pills > li > a {
   border-radius: 5px;
-}
+}*/
 .nav-pills > li + li {
   margin-left: 2px;
 }

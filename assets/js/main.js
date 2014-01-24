@@ -14,7 +14,7 @@ $(function() {
     });
 
     // Bind tooltips on hover
-    $('body').on('hover click focus', '.js-tooltip', function(e) {
+    $('body').on('mouseover click focus', '.js-tooltip', function(e) {
         var $this = $(this);
         // Check that the popover is not already initialized
         if (!$this.data('bs.tooltip')) {
@@ -37,13 +37,13 @@ $(function() {
             }
 
             $this.tooltip(options);
-            if (!$this.data('trigger') || $this.data('trigger').indexOf('hover') > -1)
+            if (!$this.data('trigger') || $this.data('trigger').indexOf('mouseover') > -1)
                 $this.tooltip('show');
         }
     });
 
     // Bind on-top popovers
-    $('body').on('hover click focus', '.js-popover', function(e) {
+    $('body').on('mouseover click focus', '.js-popover', function(e) {
         var $this = $(this);
         // Check that the popover is not already initialized
         if (!$this.data('bs.popover')) {
@@ -77,7 +77,7 @@ $(function() {
                 $this.css({position: 'relative'});
             }
             $this.popover(options);
-            if ($this.data('trigger') && $this.data('trigger').indexOf('hover') > -1)
+            if ($this.data('trigger') && $this.data('trigger').indexOf('mouseover') > -1)
                 $this.popover('show');
         }
     });

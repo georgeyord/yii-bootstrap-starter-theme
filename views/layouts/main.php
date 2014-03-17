@@ -31,6 +31,7 @@ $cs->addPackage('js-bs3-basic', array(
         'main.js',
         'bs.activeform.js',
         'jquery.ba-bbq.min.js',
+        'masonry.pkgd.min.js'
     ),
     'depends' => array(
         'bbq',

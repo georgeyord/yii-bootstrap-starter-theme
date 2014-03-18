@@ -227,7 +227,7 @@ div.flash-success a
 /* Fixes in Yii */
 .js-tagsinput + .bootstrap-tagsinput {
     width: 100%;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 table.detail-view tr.selected,
 table.detail-view tr:hover.selected,

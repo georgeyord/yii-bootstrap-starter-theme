@@ -1,6 +1,7 @@
 [submodule "lib/tagsinput"]
 	path = lib/tagsinput
-	url = git@github.com:TimSchlechter/bootstrap-tagsinput.git
+	url = git@github.com:wardpeet/bootstrap-tagsinput.git
+	#url = git@github.com:TimSchlechter/bootstrap-tagsinput.git
 [submodule "lib/bootbox"]
 	path = lib/bootbox
 	url = git@github.com:makeusabrew/bootbox.git

@@ -125,9 +125,9 @@ $(function() {
                     options.maxTags = $this.data('maxTags');
 
                 // Set typeahead endpoint and activate typeahead if needed
-                if ($this.data('typeaheadSource')) {
-                    if (typeof options.typeahead != 'object')
+                if ($this.data('typeaheadSource') || $this.data('typeaheadLocal') || $this.data('typeaheadRemote')  && typeof options.typeahead != 'object')
                         options.typeahead = {};
+                if ($this.data('typeaheadSource')) {
                     if (typeof $this.data('typeaheadSource') == 'object')
                         options.typeahead.source = $this.data('typeaheadSource');
                     else
@@ -135,9 +135,13 @@ $(function() {
                             return $.getJSON($this.data('typeaheadSource'), query);
                         };
                 }
+                if (typeof $this.data('typeaheadLocal') == 'object')
+                        options.typeahead.local = $this.data('typeaheadLocal');
+                if (typeof $this.data('typeaheadRemote'))
+                    options.typeahead.remote = $this.data('typeaheadRemote');
 
                 if (options.typeahead)
-                    options.typeahead.freeInput = ($this.data('typeaheadFreeInput') ? $this.data('typeaheadFreeInput') : true);
+                    options.typeahead.freeInput = ($this.data('typeaheadFreeInput') == true ? true : false);
 
                 $this.tagsinput(options);
             }
